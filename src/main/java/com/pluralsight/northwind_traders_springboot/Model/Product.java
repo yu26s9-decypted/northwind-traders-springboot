@@ -24,12 +24,7 @@ public class Product {
     @Column(name = "UnitPrice")
     BigDecimal price;
 
-    public Product(int productId, String name, Category category, BigDecimal price) {
-        this.productId = productId;
-        this.name = name;
-        this.category = category;
-        this.price = price;
-    }
+    public Product() {}
 
     public int getProductId() {
         return productId;

@@ -15,6 +15,8 @@ public class Category {
 
     private String description;
 
+    public Category() {}
+
     public int getCategoryId() {
         return categoryId;
     }

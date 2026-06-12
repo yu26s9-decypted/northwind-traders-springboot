@@ -1,0 +1,20 @@
+package com.pluralsight.northwind_traders_springboot.Service;
+
+import com.pluralsight.northwind_traders_springboot.Model.Product;
+import com.pluralsight.northwind_traders_springboot.Repository.ProductRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class ProductService {
+    private final ProductRepository productRepository;
+
+    public ProductService(ProductRepository productRepository ){
+        this.productRepository = productRepository;
+    }
+
+    public List<Product> getAllProduct(){
+        return productRepository.findAll();
+    }
+}
