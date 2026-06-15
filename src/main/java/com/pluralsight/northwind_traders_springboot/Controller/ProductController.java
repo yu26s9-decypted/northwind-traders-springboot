@@ -3,6 +3,7 @@ package com.pluralsight.northwind_traders_springboot.Controller;
 
 import com.pluralsight.northwind_traders_springboot.Model.Product;
 import com.pluralsight.northwind_traders_springboot.Service.ProductService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,6 +29,12 @@ public class ProductController {
         return productService.getProductById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PostMapping
+    public ResponseEntity<Product> createProduct(@RequestBody Product product){
+        Product p = productService.createProduct(product);
+        return ResponseEntity.status(HttpStatus.CREATED).body(p);
     }
 }
 
