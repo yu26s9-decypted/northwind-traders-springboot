@@ -36,5 +36,12 @@ public class ProductController {
         Product p = productService.createProduct(product);
         return ResponseEntity.status(HttpStatus.CREATED).body(p);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Product> deleteProduct(@PathVariable Long id){
+        return productService.deleteProductById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 }
 

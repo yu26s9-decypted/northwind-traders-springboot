@@ -24,4 +24,14 @@ public class ProductService {
     public Product createProduct(Product product){
         return productRepository.save(product);
     }
+
+    public Optional<Product> deleteProductById(Long productId){
+        Optional<Product> product = productRepository.findByProductId(productId);
+
+        if(product.isPresent()){
+            productRepository.deleteById(productId);
+        }
+
+        return product;
+    }
 }
